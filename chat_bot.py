@@ -1,4 +1,4 @@
-from random import choice #### Random module
+import random #### Random module
 from os import system ### OS module, Used here for animation
 import time ### Time module
 import threading ### Multi Threading baby :D
@@ -24,11 +24,12 @@ time.sleep(1)
 clear()
 
 # set global variable flag
-flag = 1
+### I found this set of functions to allow me to loop some code while also looking for an input, you can find it here https://stackoverflow.com/a/47540581
+flag = True
 
 def normal():
-    global flag
-    while flag==1:
+    flag
+    while flag:
         print (u"""
            .d8888b.                          .d8888b.                       
         \u001b[36m.d\u001b[0md88P\u001b[36mb.\u001b[0mY88b                      \u001b[36m.d\u001b[0md88P\u001b[36m8b\u001b[0mY88b                      
@@ -170,19 +171,55 @@ def normal():
 
         """)
         clear()
-        if flag==False:
+        if not flag:### Inserting my code here
             clear()
             print('it works')
+            print("Select Difficulty")
+            while True:
+                try:
+                    difficulty = int(input('Easier 10-0 Harder: '))
+                    break
+                except ValueError:
+                    print("Please input integer only...")  
+                    continue
+            if difficulty == 69:
+               print('I like your style, have fun :D')
+            elif difficulty > 10:
+                difficulty = -10
+                print("""
+                You tried to cheat and make the game easier for yourself, 
+                so now I will punish you by making it harder
+                """)
+            random.seed()
+            affinity = difficulty
+            print("Affinity " + str(affinity) +
+"""
+This is your affinity with SymCom
+When this stat reaches X you win the game,
+but if the stat reaches Y before Z day you will lose
+""")
+            intelligence = random.randint(1,10) + difficulty
+            print("Intelligence " + str(intelligence) + 
+"""
+The higher this stat, the easier it is to trick SymCom
+""")
+            charisma = random.randint(1,10) + difficulty
+            print("Charisma " + str(charisma)
++ """
+The higher this stat, the faster will you gain affinity with SymCom
+""")
 
 def get_input():
     global flag
-    keystrk=input('\n')
+    input('\n')
     #thread doesn't continue until key is pressed
-    print('You pressed: ', keystrk)
     flag=False
-    print('flag is now:', flag)
 
 n=threading.Thread(target=normal)
 i=threading.Thread(target=get_input)
 n.start()
 i.start()
+### end of borrowed code
+
+
+
