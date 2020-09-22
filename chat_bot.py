@@ -57,6 +57,7 @@ def normal():
         Press Enter to Start
         """)
         time.sleep(.25)
+        clear()
         print (u"""
            .d8888b.                          .d8888b.                       
         \u001b[36m.d\u001b[0md88P\u001b[36mb.\u001b[0mY88b                      \u001b[36m.d\u001b[0md88P\u001b[36m8b\u001b[0mY88b                      
@@ -92,6 +93,7 @@ def normal():
         Press Enter to Start
         """)
         time.sleep(.25)
+        clear()
         print (u"""
            .d8888b.                          .d8888b.                       
         \u001b[36m.d\u001b[0md88P\u001b[36mb.\u001b[0mY88b                      \u001b[36m.d\u001b[0md88P\u001b[36m8b\u001b[0mY88b                      
